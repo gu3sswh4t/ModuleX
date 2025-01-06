@@ -9,7 +9,7 @@
   <title>ModuleX</title>
   <style>
     .popup {
-      display: none; /* Hidden by default */
+      display: none; 
       position: fixed;
       top: 50%;
       left: 50%;
@@ -24,7 +24,7 @@
     .popup-content {
       margin-bottom: 15px;
       font-size: 16px;
-      color: #333; /* Ensure content is visible */
+      color: #333; 
     }
     .popup-buttons {
       text-align: right;
@@ -54,12 +54,12 @@
     <section>
       <h2><font color="DarkBlue">Available Files</font></h2>
       <ul id="pdfList">
-        <!-- Dynamic list of PDFs will go here -->
+       
       </ul>
     </section>
   </main>
   <footer>
-    <p><img src="icons/school.png" alt="CNHS" width="20" height="20"> Cogon National High School - 304223</p>
+   
   </footer>
   <script src="app.js"></script>
 
@@ -84,27 +84,27 @@
 
     const hasDismissed = localStorage.getItem('dismissedMessage') === 'true';
 
-    // Show the popup when the page loads if the user hasn't dismissed it yet
+   
     if (!hasDismissed) {
       window.onload = function() {
         showPopup();
       };
     }
 
-    // Function to show the popup
+
     function showPopup() {
       const popup = document.getElementById('popup');
       if (popup) {
-        popup.style.display = 'block'; // Show popup
+        popup.style.display = 'block'; 
       }
     }
 
-    // Function to dismiss the popup and store the dismissal in localStorage
+   
     function dismissPopup() {
       localStorage.setItem('dismissedMessage', 'true');
       const popup = document.getElementById('popup');
       if (popup) {
-        popup.style.display = 'none'; // Hide popup
+        popup.style.display = 'none';
       }
     }
   </script>
