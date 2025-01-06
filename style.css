@@ -53,6 +53,25 @@ h2 {
 }
 
 
+progress {
+  width: 100%; /* Adjust width as needed */
+  height: 20px; 
+  background-color: #eee; 
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #eee; 
+  border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #4CAF50; /* Green color */
+  border-radius: 5px;
+}
+
+
 .search {
   margin-bottom: 20px;
   text-align: center;
