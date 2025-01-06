@@ -62,10 +62,40 @@ self.addEventListener('activate', (event) => {
   );
 });
 
+
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
       return response || fetch(event.request);
     })
+  );
+});
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open('my-cache-name')
+      .then((cache) => {
+        return Promise.all([
+          cache.put('index.html', new Request('index.html')),
+          cache.put('style.css', new Request('style.css')),
+          cache.put('app.js', new Request('app.js')),
+          cache.put('manifest.json', new Request('manifest.json')),
+          cache.put('service-worker.js', new Request('service-worker.js')),
+        ]);
+      })
+      .then(() => {
+        
+        this.cachedFiles = 5; 
+
+      
+        clients.matchAll().then((clients) => {
+          clients.forEach((client) => {
+            client.postMessage({ 
+              type: 'cacheProgress', 
+              cachedFiles: this.cachedFiles, 
+              totalFiles: this.totalFiles 
+            });
+          });
+        });
+      })
   );
 });
