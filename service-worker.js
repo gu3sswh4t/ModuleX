@@ -145,8 +145,9 @@ const ASSETS = [
   'pdfs/HOUSEKEEPINGQ4MODULE3.pdf',
 ];
 
-let totalBytes = 0; 
-let loadedBytes = 0; 
+let totalBytes = 0;
+let loadedBytes = 0;
+
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -155,13 +156,11 @@ self.addEventListener('install', (event) => {
       for (const file of ASSETS) {
         const response = await fetch(file);
 
-        // Calculate total bytes
         const contentLength = response.headers.get('Content-Length');
         if (contentLength) {
           totalBytes += parseInt(contentLength);
         }
 
-        // Stream the response and update progress
         const reader = response.body.getReader();
         while (true) {
           const { done, value } = await reader.read();
@@ -208,3 +207,5 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
+
+
