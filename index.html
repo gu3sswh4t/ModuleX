@@ -8,24 +8,25 @@
   <link rel="manifest" href="manifest.json">
   <title>ModuleX</title>
   <style>
-    /* ... your styles ... */
 
     .popup {
-      /* ... your popup styles ... */
+      
     }
 
     #progress-bar {
       position: fixed;
-      bottom: 0;
+      top: 0;
       left: 0;
       width: 100%;
       height: 20px;
       background-color: #eee;
-      z-index: 9999; /* Ensure it's on top */
+      z-index: 9999; 
     }
   </style>
 </head>
 <body>
+  <progress id="progress-bar" value="0" max="100"></progress>
+
   <header>
     <img src="icons/HeaderModuleX.png" alt="ModuleX">
   </header>
@@ -41,14 +42,12 @@
     <section>
       <h2><font color="DarkBlue">Available Files</font></h2>
       <ul id="pdfList">
-        </ul>
+      </ul>
     </section>
   </main>
   <footer>
     <p><img src="icons/school.png" alt="CNHS" width="20" height="20"> Cogon National High School - 304223</p>
   </footer>
-  <progress id="progress-bar" value="0" max="100"></progress>
-
   <script src="app.js"></script>
 
   <div id="popup" class="popup">
