@@ -70,7 +70,20 @@
       <button onclick="dismissPopup()">Got it!</button>
     </div>
   </div>
+    
 
+    
+    navigator.serviceWorker.addEventListener('message', (event) => {
+  if (event.data.type === 'cacheProgress') {
+    const { cachedFiles, totalFiles } = event.data;
+    const progress = (cachedFiles / totalFiles) * 100;
+    document.getElementById('progressBar').value = progress; 
+    // Optionally, update a progress text element 
+  }
+});
+
+
+    
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js').then(() => {
