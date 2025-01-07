@@ -1,0 +1,21 @@
+{
+  "name": "Module Legends",
+  "short_name": "Module Legends",
+  "description": "Cogon National High School. View and download PDFs with offline support.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0078d7",
+  "theme_color": "#0078d7",
+  "icons": [
+    {
+      "src": "icons/cogon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/cogon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
